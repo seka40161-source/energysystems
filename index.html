@@ -1,0 +1,1162 @@
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EnergySystems</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #05070a;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+
+    background: rgba(5, 7, 10, 0.65);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(56, 207, 255, 0.15);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #38cfff;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #38cfff;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 7%;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(5, 7, 10, 0.65),
+            rgba(5, 7, 10, 0.9)
+        ),
+        url("https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=2000&q=80");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 750px;
+    position: relative;
+    z-index: 5;
+}
+
+.hero small {
+    color: #38cfff;
+    font-size: 18px;
+    letter-spacing: 4px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 8vw, 100px);
+    line-height: 0.95;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    color: #38cfff;
+}
+
+.hero p {
+    color: #b7c3cc;
+    font-size: 20px;
+    line-height: 1.6;
+    max-width: 650px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 16px 30px;
+    border: 1px solid #38cfff;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.3s;
+    background: rgba(56, 207, 255, 0.08);
+}
+
+.btn:hover {
+    background: #38cfff;
+    color: #05070a;
+    box-shadow: 0 0 30px rgba(56, 207, 255, 0.5);
+}
+
+/* ================= GLOW ================= */
+
+.glow {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.18;
+    background: #38cfff;
+}
+
+.glow.one {
+    top: 10%;
+    right: 10%;
+}
+
+.glow.two {
+    bottom: 0;
+    left: 10%;
+}
+
+/* ================= RINGS ================= */
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(56, 207, 255, 0.25);
+    border-radius: 50%;
+    animation: rotateCircle 15s linear infinite;
+}
+
+.hero::before {
+    width: 600px;
+    height: 600px;
+    right: -200px;
+    top: 15%;
+}
+
+.hero::after {
+    width: 400px;
+    height: 400px;
+    right: -100px;
+    top: 25%;
+    animation-direction: reverse;
+    animation-duration: 10s;
+}
+
+@keyframes rotateCircle {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ================= SECTIONS ================= */
+
+section {
+    padding: 120px 7%;
+    position: relative;
+}
+
+.section-title {
+    font-size: 50px;
+    margin-bottom: 60px;
+}
+
+.section-title span {
+    color: #38cfff;
+}
+
+/* ================= ABOUT ================= */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about img {
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid rgba(56, 207, 255, 0.2);
+}
+
+.about-text p {
+    color: #aeb9c2;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+/* ================= STATS ================= */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 70px;
+}
+
+.stat {
+    padding: 45px 25px;
+    border: 1px solid rgba(56, 207, 255, 0.18);
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    transition: 0.4s;
+}
+
+.stat:hover {
+    transform: translateY(-8px);
+    border-color: #38cfff;
+    box-shadow: 0 0 30px rgba(56, 207, 255, 0.12);
+}
+
+.stat h3 {
+    font-size: 55px;
+    color: #38cfff;
+    margin-bottom: 10px;
+}
+
+.stat p {
+    color: #aeb9c2;
+    font-size: 17px;
+}
+
+/* ================= SERVICES ================= */
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    padding: 35px 25px;
+    border: 1px solid rgba(56, 207, 255, 0.15);
+    border-radius: 18px;
+    background: rgba(255,255,255,0.02);
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: #38cfff;
+    box-shadow: 0 0 30px rgba(56, 207, 255, 0.12);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: #38cfff;
+}
+
+.card p {
+    color: #9caab5;
+    line-height: 1.6;
+}
+
+/* ================= DIRECTIONS ================= */
+
+.directions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.direction {
+    padding: 35px;
+    border-radius: 18px;
+    border: 1px solid rgba(56, 207, 255, 0.15);
+    transition: 0.4s;
+}
+
+.direction:hover {
+    background: rgba(56, 207, 255, 0.05);
+    transform: scale(1.03);
+}
+
+.direction h3 {
+    color: #38cfff;
+    margin-bottom: 10px;
+}
+
+/* ================= PROJECTS ================= */
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.project {
+    position: relative;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.project img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.6s;
+}
+
+.project:hover img {
+    transform: scale(1.08);
+}
+
+.project-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+}
+
+.project-info h3 {
+    color: #38cfff;
+}
+
+/* ================= CONTACTS ================= */
+
+.contacts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.contact-info p {
+    margin: 20px 0;
+    color: #b4c0c8;
+    font-size: 18px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background: #0a0e13;
+    border: 1px solid rgba(56, 207, 255, 0.2);
+    color: white;
+    padding: 16px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #38cfff;
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-form button {
+    padding: 16px;
+    border: none;
+    border-radius: 30px;
+    background: #38cfff;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    box-shadow: 0 0 30px rgba(56, 207, 255, 0.5);
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+    padding: 40px;
+    border-top: 1px solid rgba(56, 207, 255, 0.1);
+    color: #71808b;
+}
+
+/* ================= ANIMATION ================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= PARTICLES ================= */
+
+#particles {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ================= CURSOR LIGHT ================= */
+
+.cursor-light {
+    position: fixed;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: rgba(56, 207, 255, 0.08);
+    filter: blur(60px);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 900px) {
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .about,
+    .contacts {
+        grid-template-columns: 1fr;
+    }
+
+    .services {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .directions,
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 15px 5%;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    section {
+        padding: 80px 5%;
+    }
+
+    .services {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+    }
+
+    .section-title {
+        font-size: 38px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="cursor-light" id="cursorLight"></div>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        ENERGY<span>SYSTEMS</span>
+    </div>
+
+    <nav>
+        <a href="#home">Главная</a>
+        <a href="#about">О компании</a>
+        <a href="#services">Услуги</a>
+        <a href="#projects">Проекты</a>
+        <a href="#contacts">Контакты</a>
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+
+    <div class="hero-content">
+
+        <small>ЭНЕРГИЯ БУДУЩЕГО</small>
+
+        <h1>
+            ENERGY<br>
+            <span>SYSTEMS</span>
+        </h1>
+
+        <p>
+            Проектируем, внедряем и обслуживаем современные
+            инженерные и энергетические системы.
+        </p>
+
+        <a href="#contacts" class="btn">
+            Обсудить проект →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about" class="reveal">
+
+    <h2 class="section-title">
+        Качество <span>превыше всего</span>
+    </h2>
+
+    <div class="about">
+
+        <div class="about-text">
+
+            <p>
+                EnergySystems — команда специалистов,
+                которая занимается комплексным проектированием,
+                монтажом и обслуживанием инженерных систем.
+            </p>
+
+            <br>
+
+            <p>
+                Мы объединяем современные технологии,
+                качественное оборудование и профессиональный
+                подход для создания надежной инфраструктуры.
+            </p>
+
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1200&q=80">
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="stats">
+
+        <div class="stat">
+            <h3>
+                <span class="counter" data-target="16">0</span>+
+            </h3>
+            <p>лет опыта</p>
+        </div>
+
+        <div class="stat">
+            <h3>
+                <span class="counter" data-target="50">0</span>+
+            </h3>
+            <p>производителей</p>
+        </div>
+
+        <div class="stat">
+            <h3>
+                <span class="counter" data-target="100">0</span>%
+            </h3>
+            <p>комплексный подход</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services" class="reveal">
+
+    <h2 class="section-title">
+        Наши <span>услуги</span>
+    </h2>
+
+    <div class="services">
+
+        <div class="card">
+            <h3>Проектирование</h3>
+            <p>
+                Разработка инженерных решений
+                под конкретные задачи объекта.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Монтаж</h3>
+            <p>
+                Профессиональный монтаж оборудования
+                и инженерных систем.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Настройка</h3>
+            <p>
+                Пусконаладочные работы и настройка
+                оборудования.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Поддержка</h3>
+            <p>
+                Техническое обслуживание и сопровождение
+                готовых систем.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DIRECTIONS -->
+
+<section class="reveal">
+
+    <h2 class="section-title">
+        Направления <span>работы</span>
+    </h2>
+
+    <div class="directions">
+
+        <div class="direction">
+            <h3>⚡ Электроснабжение</h3>
+            <p>Электрические сети и оборудование.</p>
+        </div>
+
+        <div class="direction">
+            <h3>🌐 IT и связь</h3>
+            <p>Сетевые и телекоммуникационные системы.</p>
+        </div>
+
+        <div class="direction">
+            <h3>🔐 Безопасность</h3>
+            <p>Системы контроля и видеонаблюдения.</p>
+        </div>
+
+        <div class="direction">
+            <h3>⚙ Автоматизация</h3>
+            <p>Автоматизация инженерных процессов.</p>
+        </div>
+
+        <div class="direction">
+            <h3>❄ Климатические системы</h3>
+            <p>Современные решения для микроклимата.</p>
+        </div>
+
+        <div class="direction">
+            <h3>🏭 Промышленные решения</h3>
+            <p>Инженерные решения для предприятий.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects" class="reveal">
+
+    <h2 class="section-title">
+        Наши <span>проекты</span>
+    </h2>
+
+    <div class="projects">
+
+        <div class="project">
+
+            <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80">
+
+            <div class="project-info">
+                <h3>Энергетическая система</h3>
+                <p>Комплексное решение</p>
+            </div>
+
+        </div>
+
+
+        <div class="project">
+
+            <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1200&q=80">
+
+            <div class="project-info">
+                <h3>Промышленный объект</h3>
+                <p>Инженерная инфраструктура</p>
+            </div>
+
+        </div>
+
+
+        <div class="project">
+
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80">
+
+            <div class="project-info">
+                <h3>IT-инфраструктура</h3>
+                <p>Сетевые решения</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACTS -->
+
+<section id="contacts" class="reveal">
+
+    <h2 class="section-title">
+        Связаться с <span>нами</span>
+    </h2>
+
+    <div class="contacts">
+
+        <div class="contact-info">
+
+            <p>📞 +7 778 911 1555</p>
+
+            <p>✉ info@energysystems.kz</p>
+
+            <p>📍 Казахстан</p>
+
+            <p>
+                Расскажите о вашей задаче —
+                мы обсудим возможное решение.
+            </p>
+
+        </div>
+
+
+        <form class="contact-form">
+
+            <input
+                type="text"
+                placeholder="Ваше имя"
+                required
+            >
+
+            <input
+                type="tel"
+                placeholder="Ваш телефон"
+                required
+            >
+
+            <input
+                type="email"
+                placeholder="Ваш Email"
+            >
+
+            <textarea
+                placeholder="Расскажите о вашем проекте"
+            ></textarea>
+
+            <button type="submit">
+                Отправить заявку
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    ENERGY SYSTEMS
+
+    <br><br>
+
+    © 2026 EnergySystems
+
+</footer>
+
+
+<script>
+
+/* ================= REVEAL ================= */
+
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("active");
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.15
+    }
+);
+
+reveals.forEach((element) => {
+    observer.observe(element);
+});
+
+
+/* ================= ANIMATED NUMBERS ================= */
+
+const counters = document.querySelectorAll(".counter");
+
+let countersStarted = false;
+
+function startCounters() {
+
+    if (countersStarted) return;
+
+    countersStarted = true;
+
+    counters.forEach((counter) => {
+
+        const target = Number(counter.dataset.target);
+
+        let current = 0;
+
+        const duration = 1800;
+
+        const startTime = performance.now();
+
+        function updateNumber(currentTime) {
+
+            const progress =
+                Math.min(
+                    (currentTime - startTime) / duration,
+                    1
+                );
+
+            const ease =
+                1 - Math.pow(1 - progress, 3);
+
+            current = Math.floor(target * ease);
+
+            counter.textContent = current;
+
+            if (progress < 1) {
+
+                requestAnimationFrame(updateNumber);
+
+            } else {
+
+                counter.textContent = target;
+
+            }
+
+        }
+
+        requestAnimationFrame(updateNumber);
+
+    });
+
+}
+
+
+/* Запускаем цифры, когда блок появляется */
+
+const statsBlock = document.querySelector(".stats");
+
+const statsObserver = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                startCounters();
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.3
+    }
+);
+
+statsObserver.observe(statsBlock);
+
+
+/* ================= CURSOR LIGHT ================= */
+
+const cursorLight =
+    document.getElementById("cursorLight");
+
+document.addEventListener("mousemove", (event) => {
+
+    cursorLight.style.left = event.clientX + "px";
+
+    cursorLight.style.top = event.clientY + "px";
+
+});
+
+
+/* ================= PARTICLES ================= */
+
+const canvas =
+    document.getElementById("particles");
+
+const ctx =
+    canvas.getContext("2d");
+
+let particles = [];
+
+function resizeCanvas() {
+
+    canvas.width = window.innerWidth;
+
+    canvas.height = window.innerHeight;
+
+}
+
+resizeCanvas();
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+
+for (let i = 0; i < 70; i++) {
+
+    particles.push({
+
+        x: Math.random() * window.innerWidth,
+
+        y: Math.random() * window.innerHeight,
+
+        size: Math.random() * 2 + 1,
+
+        speedX:
+            (Math.random() - 0.5) * 0.5,
+
+        speedY:
+            (Math.random() - 0.5) * 0.5
+
+    });
+
+}
+
+
+function animateParticles() {
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    particles.forEach((particle) => {
+
+        particle.x += particle.speedX;
+
+        particle.y += particle.speedY;
+
+
+        if (
+            particle.x < 0 ||
+            particle.x > canvas.width
+        ) {
+            particle.speedX *= -1;
+        }
+
+        if (
+            particle.y < 0 ||
+            particle.y > canvas.height
+        ) {
+            particle.speedY *= -1;
+        }
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+            particle.x,
+            particle.y,
+            particle.size,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle =
+            "rgba(56,207,255,0.6)";
+
+        ctx.fill();
+
+    });
+
+
+    for (let i = 0; i < particles.length; i++) {
+
+        for (
+            let j = i + 1;
+            j < particles.length;
+            j++
+        ) {
+
+            const dx =
+                particles[i].x -
+                particles[j].x;
+
+            const dy =
+                particles[i].y -
+                particles[j].y;
+
+            const distance =
+                Math.sqrt(dx * dx + dy * dy);
+
+
+            if (distance < 130) {
+
+                ctx.beginPath();
+
+                ctx.moveTo(
+                    particles[i].x,
+                    particles[i].y
+                );
+
+                ctx.lineTo(
+                    particles[j].x,
+                    particles[j].y
+                );
+
+                ctx.strokeStyle =
+                    "rgba(56,207,255,0.08)";
+
+                ctx.stroke();
+
+            }
+
+        }
+
+    }
+
+
+    requestAnimationFrame(
+        animateParticles
+    );
+
+}
+
+animateParticles();
+
+
+/* ================= FORM ================= */
+
+const form =
+    document.querySelector(".contact-form");
+
+form.addEventListener("submit", (event) => {
+
+    event.preventDefault();
+
+    alert(
+        "Спасибо! Ваша заявка принята."
+    );
+
+    form.reset();
+
+});
+
+</script>
+
+</body>
+</html>
+```
